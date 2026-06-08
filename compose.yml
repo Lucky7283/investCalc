@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      # REQUIRED: You must set a password for the superuser
+      POSTGRES_PASSWORD: Pass12345
+      # Optional: Set a custom database name
+      POSTGRES_DB: postgres
+      # These match the image's internal config
+      PGDATA: /var/lib/postgresql/18/docker
+    volumes:
+      # Persist data on your host machine to the specific path found in your image
+      - postgres_data:/var/lib/postgresql/18/docker
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
