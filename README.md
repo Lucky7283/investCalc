@@ -2,18 +2,25 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
-
+This is application for managing funds investments for investor.
 ## Description
-TODO - How have you solved the problem?
+I cerate the app for help investor to managing his investments.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+`git clone https://github.com/Lucky7283/investCalc.git`
 
 ## Usage
-TODO - How does it work?
+For usage in console write `cd investCalc` after that
 ```
-./my_project argument1 argument2
+docker compose up
+```
+and go to localhost:3000 you will see the site and can use it 
+site has any routes
+```
+/
+/home
+/investments
+/funds
 ```
 
 ### The Core Team
