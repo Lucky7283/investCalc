@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fund Details</title>
+    <link rel="stylesheet" th:href="@{/css/fund.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Fund Details</h1>
+        <div th:if="${fund != null}">
+            <div class="field">
+                <span class="label">ID:</span>
+                <span th:text="${fund.id}"></span>
+            </div>
+            <div class="field">
+                <span class="label">Name:</span>
+                <span th:text="${fund.name}"></span>
+            </div>
+            <div class="field">
+                <span class="label">Amount:</span>
+                <span th:text="${fund.amount}"></span>
+            </div>
+            <div class="field">
+                <span class="label">Created At:</span>
+                <span th:text="${#temporals.format(fund.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></span>
+            </div>
+        </div>
+        <div th:if="${fund == null}">
+            <p>Fund not found.</p>
+        </div>
+        <a href="/home">Back to Home</a>
+    </div>
+</body>
+</html>
