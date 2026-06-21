@@ -53,4 +53,10 @@ public class DashboardController {
         investmentService.updateInvestmentName(id, newName);
         return "redirect:/investments/" + id;
     }
+
+    @PostMapping("/investments/{id}/delete")
+    public String deleteInvestment(@PathVariable long id) {
+        investmentService.deleteInvestment(id);
+        return "redirect:/";
+    }
 }

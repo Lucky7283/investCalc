@@ -64,4 +64,7 @@ public class InvestmentService {
             investmentRepository.save(inv);
         });
     }
+    public void deleteInvestment(Long id) {
+        investmentRepository.deleteById(id);
+    }
 }

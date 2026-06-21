@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: Pass12345
       POSTGRES_USER: postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/18/docker
+      - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
   app:
@@ -19,7 +19,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: Pass12345
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver

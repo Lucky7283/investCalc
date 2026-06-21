@@ -36,7 +36,10 @@
         <td th:text="${fund.amount}"></td>
         <td th:text="${#temporals.format(fund.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
         <td class="actions">
-            <a th:href="@{/funds/{id}(id=${fund.id})}">View</a>
+            <a th:href="@{/investments/{id}/delete(id=${fund.id})}">View</a>
+            <form th:action="@{/fund/{id}/delete(id=${fund.id})}" th:method="delete" style="display: inline;" onsubmit="return confirm('Are you sure?')">
+                <button type="submit" style="background:none; border:none; color:#dc3545; cursor:pointer; padding:0; font-family:inherit; font-size:inherit;">Delete</button>
+            </form>
         </td>
     </tr>
     </tbody>

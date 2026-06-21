@@ -5,10 +5,11 @@ import com.investCalc.model.services.FundService;
 import com.investCalc.model.services.InvestmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@org.springframework.stereotype.Controller
+@Controller
 public class FundController {
 
     private final FundService fundService;
@@ -42,6 +43,12 @@ public class FundController {
     @PostMapping("/funds")
     public String createFund(@RequestParam String name, @RequestParam double amount) {
         investmentService.createInvestment(name, amount);
+        return "redirect:/funds";
+    }
+
+    @DeleteMapping("/fund/{id}")
+    public String deleteFund(@PathVariable Long id) {
+        investmentService.deleteInvestment(id);
         return "redirect:/funds";
     }
 }

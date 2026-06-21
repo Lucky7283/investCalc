@@ -37,8 +37,11 @@
                         </div>
                     </form>
 
-                    <div class="mt-4">
+                    <div class="mt-4 d-flex justify-content-between">
                         <a href="/" class="btn btn-secondary">Back to Dashboard</a>
+                        <form th:action="@{/investments/{id}/delete(id=${investment.id})}" method="post" onsubmit="return confirm('You sure that want to delete?')">
+                            <button type="submit" class="btn btn-danger">Delete Investment</button>
+                        </form>
                     </div>
                 </div>
                 <div class="card-body text-center" th:unless="${investment}">

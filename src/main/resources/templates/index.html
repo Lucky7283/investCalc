@@ -89,7 +89,12 @@
                         <td th:text="${#numbers.formatCurrency(inv.amount)}">$0</td>
                         <td th:text="${#temporals.format(inv.createdAt, 'dd-MM-yyyy HH:mm')}">Date</td>
                         <td>
-                            <a th:href="@{/investments/{id}(id=${inv.id})}" class="btn btn-sm btn-outline-primary">Details</a>
+                            <div class="btn-group">
+                                <a th:href="@{/investments/{id}(id=${inv.id})}" class="btn btn-sm btn-outline-primary">Details</a>
+                                <form th:action="@{/investments/{id}/delete(id=${inv.id})}" th:method="delete" style="display: inline;" onsubmit="return confirm('Are you sure?')">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     </tbody>
